@@ -9,9 +9,10 @@
 | email                     | string     | null: false, unique: true      |
 | encrypted_password        | string     | null: false                    |
 | nickname                  | string     | null: false                    |
-| gender_id                 | string     | null: false                    |
+| gender_id                 | integer    | null: false                    |
 | birthday                  | date       | null: false                    |
 | prefecture_id             | integer    | null: false                    |
+| profile                   | text       |                                |
 
 - has_many :trips, through: :trip_users
 - has_many :trip_users
