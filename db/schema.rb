@@ -10,14 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_22_083302) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_22_090318) do
+  create_table "plans", charset: "utf8mb4", force: :cascade do |t|
+    t.string "plan_title", null: false
+    t.text "content", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_plans_on_trip_id"
+  end
+
   create_table "trips", charset: "utf8mb4", force: :cascade do |t|
-    t.string "trip_title"
-    t.string "place"
-    t.date "start_date"
-    t.date "end_date"
+    t.string "trip_title", null: false
+    t.string "place", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "plans", "trips"
 end
