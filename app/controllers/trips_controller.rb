@@ -42,6 +42,10 @@ class TripsController < ApplicationController
     end
   end
 
+  def search
+    @trips = Trip.search(params[:keyword])
+  end 
+  
   private
   def set_users
     @users = User.all

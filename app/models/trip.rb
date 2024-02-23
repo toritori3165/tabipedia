@@ -11,4 +11,12 @@ class Trip < ApplicationRecord
     validates :start_date
     validates :end_date
   end
+
+  def self.search(search)
+    if search != ""
+      Trip.where('text LIKE(?)', "%#{search}%")
+    else
+      Trip.all
+    end
+  end 
 end

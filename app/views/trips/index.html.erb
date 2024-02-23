@@ -8,6 +8,11 @@
   <%= link_to trip.trip_title, trip_path(trip.id), data: { turbo: false }, class: "navi_btn" %>
 <% end %>
 
+<%= form_with(url: search_trips_path, local: true, method: :get, class: "search-form") do |form| %>
+ <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+ <%= form.submit "検索", class: "search-btn" %>
+<% end %> 
+
   <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
