@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   def new
-    @plan = Plan.new
+    @plan = Plan.new(params[:trip_id])
   end
 
   def create
