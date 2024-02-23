@@ -1,0 +1,7 @@
+  <%#たびぺでぃあのフォーム%>
+<%= form_with model: @trip,local: true do |f| %>
+<%= f.text_area :trip_title, class:"trip-text", id:"trip-name", placeholder:"旅行名" %>
+<%= f.text_area :place, class:"place-text", id:"place-name", placeholder:"行き先" %>
+<%= f.date_field :start_date,  class:"start_date" %>
+<%= f.date_field :end_date,  class:"end_date" %>
+<%= f.submit "登録", class: 'trip-btn'%>
