@@ -1,0 +1,5 @@
+<script src="/assets/rails-ujs.js"></script>
+  <%= @plan.plan_title %>
+  <%= @plan.content %>
+<%= link_to "プラン編集", edit_trip_plan_path(@trip.id), data: { turbo: false }, class: "navi_btn" %>
+<%= link_to "プラン削除", trip_plan_path(@trip.id), method: :delete, data: {confirm: "削除しますか？"}%>

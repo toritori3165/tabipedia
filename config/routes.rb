@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   
   resources :trips do
     resources :plans
+    collection do
+      get 'search'
+    end
   end
   
   root to: 'trips#index'

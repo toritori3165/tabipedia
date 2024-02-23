@@ -1,0 +1,5 @@
+<%= form_with model: [@trip,@plan],local: true do |f| %>
+<%= f.text_area :plan_title, class:"plan-text", id:"plan-name", placeholder:"プラン名" %>
+<%= f.text_area :content, class:"content-text", id:"content-name", placeholder:"すること" %>
+<%= f.submit "登録", class: 'trip-btn'%>
+<% end %>

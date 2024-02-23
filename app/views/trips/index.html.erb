@@ -1,6 +1,18 @@
 <%= render "shared/header" %>
 <div class='main'>
 
+
+<%#trip登録%>
+<%= link_to "旅行登録", new_trip_path, data: { turbo: false }, class: "navi_btn" %>
+<% @trips.each do |trip| %>
+  <%= link_to trip.trip_title, trip_path(trip.id), data: { turbo: false }, class: "navi_btn" %>
+<% end %>
+
+<%= form_with(url: search_trips_path, local: true, method: :get, class: "search-form") do |form| %>
+ <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+ <%= form.submit "検索", class: "search-btn" %>
+<% end %> 
+
   <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
@@ -173,6 +185,52 @@
           </div>
           <% end %>
         </li>
+      <% if @items.present? %>
+        <% @items.each do |item| %>
+      <li class='list'>
+          <%= link_to item_path(item.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag item.image, class: "item-img" %>
+              <% if item.order.present? %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+              <% end %>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.item_name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= item.price %>円<br><%= item.shipping_fee.name %></span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </li>
+
+      <% else %>
+      <li class='list'>
+        <%= link_to '#' do %>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            商品を出品してね！
+          </h3>
+          <div class='item-price'>
+            <span>99999999円<br>(税込み)</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
       <% end %>
     </ul>
 
@@ -184,4 +242,5 @@
   <%#<span class='purchase-btn-text'>出品する</span>
   <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <%#<% end %>
+
 <%= render "shared/footer" %>
