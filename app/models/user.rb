@@ -9,12 +9,20 @@ class User < ApplicationRecord
   has_many :comments
   has_one_attached :image
 
+  validates :password,
+  format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: "パスワードは半角英数字のみ、半角英数字混合で設定してください" }
+
+  with_options presence: true do
+    validates :nickname
+    validates :gender_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :age_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :birthday
+    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
   belongs_to :age
   belongs_to :prefecture
-
-  validates :gender_id, :age_id, :prefecture_id,
-            numericality: { other_than: 1, message: "can't be blank" }
 
 end
