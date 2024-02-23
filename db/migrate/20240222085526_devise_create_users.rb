@@ -9,6 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       t.string  :nickname,          null: false
       t.integer :gender_id,         null: false
+      t.integer :age_id,            null: false
       t.date    :birthday,          null: false
       t.integer :prefecture_id,     null: false
       t.text    :profile
