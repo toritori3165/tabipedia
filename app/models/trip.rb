@@ -14,7 +14,7 @@ class Trip < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Trip.where('text LIKE(?)', "%#{search}%")
+      Trip.where('trip_title LIKE(?)', "%#{search}%")
     else
       Trip.all
     end
