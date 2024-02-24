@@ -3,6 +3,6 @@
  <%= form.submit "検索", class: "search-btn" %>
 <% end %> 
 
-  <% @trips.each do |trip| %>
-    <%= link_to trip.trip_title, trip_plan_path(trip.id) %>
-  <% end %>
+<% @trips.each do |trip| %>
+  <%= link_to trip.trip_title, trip_path(trip.id) %>
+<% end %>
