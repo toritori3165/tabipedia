@@ -141,8 +141,9 @@
       新規投稿商品
     </div>
     <ul class='item-lists'>
-
-      <% if @trips.length != 0 %>
+<% 
+=begin %>
+      <% if @trips.length != 0
         <% @trips.each do |trip| %>
         <li class='list'>
           <%= link_to trip_path(trip.id) do %>
@@ -236,7 +237,9 @@
         <% end %>
       </li>
       <% end %>
-    </ul>
+    </ul> 
+<% 
+=end %>
 
   </div>
   <%# /商品一覧 %>
