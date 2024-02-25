@@ -12,6 +12,7 @@
 
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "human.png", class: 'icon2' %>
       <label class="form-text">ニックネーム</label>
       <span class="indispensable">必須</span>
     </div>
@@ -19,6 +20,7 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "email.png", class: 'icon2' %>
       <label class="form-text">メールアドレス</label>
       <span class="indispensable">必須</span>
     </div>
@@ -26,6 +28,7 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "key.png", class: 'icon2' %>
       <label class="form-text">パスワード</label>
       <span class="indispensable">必須</span>
     </div>
@@ -34,6 +37,7 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "key.png", class: 'icon2' %>
       <label class="form-text">パスワード(確認)</label>
       <span class="indispensable">必須</span>
     </div>
@@ -41,6 +45,7 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "gender.png", class: 'icon2' %>
       <label class="form-text">性別</label>
       <span class="indispensable">必須</span>
     </div>
@@ -48,6 +53,7 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "age.png", class: 'icon2' %>
       <label class="form-text">年齢</label>
       <span class="indispensable">必須</span>
     </div>
@@ -56,6 +62,7 @@
   
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "birthday.png", class: 'icon2' %>
       <label class="form-text">生年月日</label>
       <span class="indispensable">必須</span>
     </div>
@@ -76,6 +83,7 @@
 
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "spot.png", class: 'icon2' %>
       <label class="form-text">お住まい</label>
       <span class="indispensable">必須</span>
     </div>
@@ -84,9 +92,17 @@
 
   <div class="form-group">
     <div class='form-text-wrap'>
+      <%= image_tag "pencil.png", class: 'icon2' %>
       <label class="form-text">プロフィール</label>
     </div>
-    <%= f.text_field :profile	, class:"input-default", id:"profile", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_field :profile	, class:"input-default", id:"profile" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <%= image_tag "camera.png", class: 'icon2' %>
+    </div>
+      <%= f.file_field :image, id: "" %>
   </div>
 
   <div class="form-group">
@@ -96,10 +112,10 @@
   <div class="form-group">
     <h2 class='form-bottom-text'>
       「会員登録」のボタンを押すことにより、
-      <span>利用規約</span>
-      <br>に同意したものとみなします
+      <span>利用規約</span>に同意したものとみなします
     </h2>
   </div>
+
   <div class='register-btn'>
     <%= f.submit "会員登録" ,class:"register-red-btn" %>
   </div>
