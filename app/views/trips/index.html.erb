@@ -250,4 +250,43 @@
   <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <%#<% end %>
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Sample_GoogleMap</title>
+<style>
+  html { height: 100% }
+  body { height: 100% }
+  #map { height: 100%; width: 100%}
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+  // APIキーを指定してGoogle Maps JavaScript APIを読み込む
+  // 注意: ここには実際のAPIキーを入力してください
+  var apiKey = 'AIzaSyDYCBhjyECXleS0TwFxXXaHbWBrR1keUk0';
+  var script = document.createElement('script');
+  script.src = 'https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&language=ja';
+  document.head.appendChild(script);
+
+  // 地図を作成する関数
+  function initMap() {
+    var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+    var Options = {
+      zoom: 15,
+      center: MyLatLng,
+      mapTypeId: 'roadmap'
+    };
+    var map = new google.maps.Map(document.getElementById('map'), Options);
+  }
+
+  // Google Maps JavaScript APIが読み込まれた後に地図を作成する
+  script.onload = initMap;
+</script>
+</body>
+</html>
+
 <%= render "shared/footer" %>
