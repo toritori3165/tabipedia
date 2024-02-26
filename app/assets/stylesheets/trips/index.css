@@ -1,0 +1,231 @@
+a {
+  text-decoration: none;
+}
+
+.main {
+  background: #f8f8f8;
+  position: relative;
+  overflow: scroll;
+}
+
+
+
+/* 画面上部の「あなたに合った旅が見つかる」帯部分 */
+.title-images {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(himawari.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: slider-1 24s linear infinite;
+}
+
+.title-contents {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+
+.service-title {
+  font-size: 8vh;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+
+.store-btn {
+  display: flex;
+  margin-top: 24px;
+}
+
+.apple-btn {
+  margin-right: 1vw;
+  height: 9vh;
+}
+
+.google-btn {
+  height: 9vh;
+}
+
+.scroll-btn {
+  margin: 0 auto;
+  position: absolute;
+  bottom: 15px;
+  left: 50vw;
+  justify-content: center;
+  animation: poyopoyo 2s ease-out infinite;
+  opacity: 1;
+}
+@keyframes poyopoyo {
+  0%, 40%, 60%, 80% {
+    transform: scale(1.0);
+  }
+  50%, 70% {
+    transform: scale(0.6);
+  }
+}
+
+.scroll-text {
+  font-size: 15px;
+  color: #fff;
+}
+
+.scroll-icon {
+  margin-left: 10px;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+}
+/* //画面上部の「あなたに合った旅が見つかる」帯部分 */
+
+
+
+
+/* 投稿一覧 */
+.trip-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  padding: 5vh 10vh 10vh;
+}
+
+.trip-contents>.title {
+  font-size: 7vh;
+  line-height: 1.4;
+  font-family: 'Avenir', sans-serif;
+  font-weight: bold;
+}
+
+.trip-contents>.subtitle {
+  font-size: 2.5vh;
+  margin-bottom: 5vh;
+  text-decoration: none;
+  color: #a2a2a2;
+  font-weight: bold;
+}
+
+.trip-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trip-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.trip-img-content {
+  position: relative;
+}
+
+.trip-img {
+  width: 33vh;
+  height: 33vh;
+  border-radius: 5px;
+}
+
+.sold-out {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  background-color: crimson;
+  transform: skewY(-10deg);
+}
+
+.sold-out>span {
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+
+.trip-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.trip-name {
+  font-size: 2.2vh;
+}
+
+.trip-detail {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.good-btn {
+  display: flex;
+  align-items: center;
+}
+
+.good-icon {
+  height: 2vh;
+  width: 2vh;
+  margin-right: 0.5vw;
+}
+
+.spot-icon {
+  height: 1.5vh;
+  width: 1.5vh;
+  margin-right: 0.5vw;
+}
+
+.good-count {
+  font-size: 2vh;
+}
+
+.under_line2 {
+  margin: 5px 0 15px;
+  border-bottom: solid 1px #cecece;
+  width: 30%;
+}
+/* //投稿一覧 */
+
+
+
+
+/* 旅行登録ボタン */
+.trip-btn {
+  width: 120px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: absolute;
+  position: fixed;
+  padding: 15px;  
+  transition-duration: .4s;
+}
+
+.trip-btn:hover {
+  transform: scale(1.2);
+}
+
+.trip-btn-text {
+  color: #fff;
+  display: block;
+  font-size: 13px;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.trip-btn-icon {
+  width: 60%;
+}
+/* //旅行登録ボタン */
