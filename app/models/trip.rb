@@ -6,10 +6,10 @@ class Trip < ApplicationRecord
 
 
   with_options presence: true do
-    validates :trip_title
-    validates :place
-    validates :start_date
-    validates :end_date
+    validates :trip_title, presence: { message: "を入力してください" }
+    validates :place, presence: { message: "を入力してください" }
+    validates :start_date, presence: { message: "を入力してください" }
+    validates :end_date, presence: { message: "を入力してください" }
   end
 
   def self.search(search)
