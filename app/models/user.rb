@@ -9,8 +9,10 @@ class User < ApplicationRecord
   has_many :comments
   has_one_attached :image
 
-  validates :password,
-  format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: "パスワードは半角英数字のみ、半角英数字混合で設定してください" }
+  validates :password, 
+  format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: "パスワードは半角英数字のみ、半角英数字混合で設定してください" },
+   if: -> { password.present? }
+
 
   with_options presence: true do
     validates :nickname

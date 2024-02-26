@@ -1,8 +1,6 @@
 <%#たびぺでぃあのフォーム%>
 
-
-
-<%= form_with model: @trip,local: true do |f| %>
+<%= form_with model: @trip,local: true, data: { turbo: false } do |f| %>
 <%= f.file_field :images, name: 'trip[images][]', data: {index: 0} %>
 <%= f.text_area :trip_title, class:"trip-text", id:"trip-name", placeholder:"旅行名" %>
 <%= f.text_area :place, class:"place-text", id:"place-name", placeholder:"行き先" %>
@@ -12,10 +10,21 @@
         <select class="friends" name="trip[user_ids][]" multiple >
           <option value="">招待する友達を選択（Ctrl / Command または Shift + クリック）</option>
           <% User.where.not(id: current_user.id).each do |user| %>
-            <option value=<% user.id %>><%= user.nickname %></option>
+            <option value="<%= user.id %>"><%= user.nickname %></option>
           <% end %>
         </select>
        <input name="trip[user_ids][]" type="hidden" value="<%= current_user.id %>">
       </div>
 <%= f.submit "登録", class: 'trip-btn'%>
+<% end %>
+
+<% if @trip.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+    <ul>
+      <% @trip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

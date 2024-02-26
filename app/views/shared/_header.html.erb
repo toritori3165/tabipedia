@@ -17,12 +17,6 @@
     <ul class='lists-left'>
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
       <li><%= link_to 'ブランド', "#", class: "category-list" %></li>
-      <li>
-        <%= link_to "旅行登録", new_trip_path, data: { turbo: false }, class: "navi_btn" %>
-        <% @trips.each do |trip| %>
-          <%= link_to trip.trip_title, trip_path(trip.id), data: { turbo: false }, class: "navi_btn" %>
-        <% end %>
-      </li>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
