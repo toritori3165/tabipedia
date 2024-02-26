@@ -17,13 +17,13 @@
   <div class='title-images'>
     <div class='title-contents'>
       <h2 class='service-title'>
-        人生を変える旅行アプリ
+        あなたに合った旅が見つかる
       </h2>
       <p class='service-explain'>
         たびぺディアはだれでもかんたんに検索・投稿できる
       </p>
       <p class='service-explain'>
-        旅行共有アプリです
+        旅行情報共有アプリです
       </p>
       <div class='store-btn'>
         <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
@@ -139,11 +139,12 @@
   </div>
   <%# /FURIMAの特徴 %>
 
-  <%# 商品一覧 %>
-  <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
+  <%# 投稿一覧 %>
+  <div class='trip-contents'>
+    <h2 class='title'>PICK UP</h2>
+    <div class='under_line2'></div>
     <div class="subtitle" >
-      新規投稿
+      旅のプランを探そう
     </div>
     <ul class='trip-lists'>
 
@@ -151,22 +152,24 @@
         <% @trips.each do |trip| %>
         <li class='list'>
           <%= link_to trip_path(trip.id) do %>
-          <div class='item-img-content'>
-            <% if trip.images.present? %>
-              <%= image_tag trip.images[0], class: "item-img" %>
-            <% else %>
-              <%= image_tag "sakura.jpg", class: "item-img" %>
+          <div class='trip-img-content'>
+            <% if trip.images.persent? %>
+              <%= image_tag trip.images[0], class: "trip-img" %>
+            <% else %>  
+              <%= image_tag "none-image.png", class: "trip-img" %>
             <% end %>
           </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
+          <div class='trip-info'>
+            <h3 class='trip-name'>
               <%= "#{trip.trip_title}" %>
             </h3>
-            <div class='item-price'>
-              <%#<span><%= "#{trip.price}" %><%#円<br><%= "#{trip.delivery_fee_bearer.name}" %><%#</span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+            <div class='trip-detail'>
+            <div class='trip-detail'>
+              <span><%= image_tag "spot.png", class:"spot-icon" %><%= "#{trip.place}" %>
+              <br><%= image_tag "date.png", class:"spot-icon" %><%= "#{trip.start_date}" %>〜</span>
+              <div class='good-btn'>
+                <%= image_tag "good.png", class:"good-icon" %>
+                <span class='good-count'>0</span>
               </div>
             </div>
           </div>
@@ -178,15 +181,16 @@
         <li class='list'>
           <%= link_to '#' do %>
           <%= image_tag "sakura.jpg", class: "trip-img" %>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              商品を出品してね！
+          <div class='trip-info'>
+            <h3 class='trip-name'>
+              おすすめの旅を投稿してね！
             </h3>
-            <div class='item-price'>
-              <span>99999999円<br>(税込み)</span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+            <div class='trip-detail'>
+              <span><%= image_tag "spot.png", class:"spot-icon" %>東京
+              <br><%= image_tag "date.png", class:"spot-icon" %>2024年2月〜</span>
+              <div class='good-btn'>
+                <%= image_tag "good.png", class:"good-icon" %>
+                <span class='good-count'>0</span>
               </div>
             </div>
           </div>
@@ -196,51 +200,24 @@
     </ul>
 
   </div>
-  <%# /商品一覧 %>
+  <%# /投稿一覧 %>
+
+
+
+  <div class='trip-contents'>
+    <h2 class='title'>MAP</h2>
+    <div class='under_line2'></div>
+    <div class="subtitle" >
+      地図からプランを探そう
+    </div>
+
+  <%= link_to new_trip_path, data: { turbo: false }, class: 'trip-btn', style:'z-index:10000' do %>
+    <span class='trip-btn-text'>あなたの<br>旅を投稿</span>
+    <%= image_tag 'suitcase.png' , size: '185x50' ,class: "trip-btn-icon" %>
+  <% end %>
+
 </div>
 
-<%= link_to new_trip_path, data: { turbo: false }, class: 'trip-btn' do %>
-  <span class='trip-btn-text'>旅行登録</span>
-  <%= image_tag 'suitcase.png' , size: '185x50' ,class: "trip-btn-icon" %>
-<% end %>
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>Sample_GoogleMap</title>
-<style>
-  html { height: 100% }
-  body { height: 100% }
-  #map { height: 100%; width: 100%}
-</style>
-</head>
-<body>
-<div id="map"></div>
-
-<script>
-  // APIキーを指定してGoogle Maps JavaScript APIを読み込む
-  // 注意: ここには実際のAPIキーを入力してください
-  var apiKey = 'AIzaSyDYCBhjyECXleS0TwFxXXaHbWBrR1keUk0';
-  var script = document.createElement('script');
-  script.src = 'https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&language=ja';
-  document.head.appendChild(script);
-
-  // 地図を作成する関数
-  function initMap() {
-    var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
-    var Options = {
-      zoom: 15,
-      center: MyLatLng,
-      mapTypeId: 'roadmap'
-    };
-    var map = new google.maps.Map(document.getElementById('map'), Options);
-  }
-
-  // Google Maps JavaScript APIが読み込まれた後に地図を作成する
-  script.onload = initMap;
-</script>
-</body>
-</html>
+<%= render "shared/google_map" %>
 
 <%= render "shared/footer" %>

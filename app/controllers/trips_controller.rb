@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_users
   before_action :set_trip, only: [:edit, :update]
 

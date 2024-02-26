@@ -1,5 +1,5 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='top-page-header'>
+<header class='top-page-header', style='z-index:10000' >
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     
@@ -16,7 +16,7 @@
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "category-list" %></li>
+      <li><%= link_to 'エリア', "#", class: "category-list" %></li>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
