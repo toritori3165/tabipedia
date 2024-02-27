@@ -6,6 +6,8 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
+    #@trips = Trip.includes(:user).order("created_at DESC")
+    #@trip_users = TripUser.where(trip_id: params[:trip_id])
   end
 
   def new

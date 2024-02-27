@@ -126,30 +126,25 @@ a {
   background-color: #FFF;
 }
 
-
-.trip-img-content {
-  position: relative;
-}
-
 .trip-img {
+  position: relative;
   width: 33vh;
   height: 33vh;
   border-radius: 5px;
 }
 
-.sold-out {
+.trip-img-user {
   position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
+  top: 26vh;
+  left: 20px;
 }
 
-.sold-out>span {
-  color: #FFF;
-  font-size: 45px;
-  font: bold;
+.user-nickname2 {
+  font-size: 15px;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px black;
+  margin-right: 3vw;
+  color: #fff;
 }
 
 .trip-info {
