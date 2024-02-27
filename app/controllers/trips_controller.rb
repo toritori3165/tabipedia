@@ -4,7 +4,7 @@ class TripsController < ApplicationController
 
 
   def index
-    @trips = Trip.all
+    @trips = Trip.includes(:user).order("created_at DESC")
   end
 
   def new

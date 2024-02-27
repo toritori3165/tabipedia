@@ -99,14 +99,14 @@ a {
   padding: 5vh 10vh 10vh;
 }
 
-.trip-contents>.title {
+.trip-contents-title {
   font-size: 7vh;
   line-height: 1.4;
   font-family: 'Avenir', sans-serif;
   font-weight: bold;
 }
 
-.trip-contents>.subtitle {
+.trip-contents-subtitle {
   font-size: 2.5vh;
   margin-bottom: 5vh;
   text-decoration: none;
