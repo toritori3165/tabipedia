@@ -46,6 +46,7 @@
             <% else %>  
               <%= image_tag "none-image.png", class: "trip-img" %>
             <% end %>
+            <% if user_signed_in? %>
             <div class="trip-img-user" >
               <%= link_to "/users/#{trip.id}" do %>
                 <% if trip.user.image.present? %>
@@ -56,6 +57,7 @@
               <% end %>
               <%= link_to "#{trip.user.nickname}", "/users/#{trip.user.id}", class: "user-nickname2" %>
             </div>
+            <% end %>
           </div>
           <div class='trip-info'>
             <h3 class='trip-name'>
