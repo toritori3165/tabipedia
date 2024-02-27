@@ -76,8 +76,14 @@
 
       <% else %>
         <li class='list'>
-          <%= link_to '#' do %>
-          <%= image_tag "sakura.jpg", class: "trip-img" %>
+          <div class='trip-img'>
+            <%= link_to '#' do %>
+            <%= image_tag "sakura.jpg", class: "trip-img" %>
+            <div class="trip-img-user" >
+              <%= image_tag "human.png", class: "user-img" %>
+              <%= link_to "投稿者さん", '#', class: "user-nickname2" %>
+            </div>
+          </div>
           <div class='trip-info'>
             <h3 class='trip-name'>
               おすすめの旅を投稿してね！
@@ -87,7 +93,7 @@
               <br><%= image_tag "date.png", class:"spot-icon" %>2024年2月〜</span>
               <div class='good-btn'>
                 <%= image_tag "good.png", class:"good-icon" %>
-                <span class='good-count'>0</span>
+                <span class='good-count'>10</span>
               </div>
             </div>
           </div>

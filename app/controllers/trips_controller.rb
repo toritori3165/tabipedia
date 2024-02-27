@@ -1,6 +1,5 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_users
   before_action :set_trip, only: [:edit, :update]
 
 
@@ -54,12 +53,8 @@ class TripsController < ApplicationController
   end 
   
   private
-  def set_users
-    @users = User.all
-  end
-
   def trip_params
-    params.require(:trip).permit(:trip_title, :place, :start_date, :end_date, :address,{ images: []}).merge(user_id: current_user.id)
+    params.require(:trip).permit(:trip_title, :place, :start_date, :end_date, :address, { images: [] }).merge(user_id: current_user.id)
   end
 
   def set_trip
