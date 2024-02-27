@@ -5,10 +5,10 @@
   <div class='user_main'>
   
     <%# ユーザー詳細 %>
-    <div class='trip-contents'>
-      <h2 class='trip-contents-title'>USER</h2>
+    <div class='user-contents'>
+      <h2 class='user-contents-title'>USER</h2>
       <div class='under_line2'></div>
-      <div class="trip-contents-subtitle" >
+      <div class="user-contents-subtitle" >
         ユーザー情報
       </div>
     </div>
@@ -17,13 +17,13 @@
 
       <div class="user_left">
         <div class='user_profile_image'>
-          <% if @user.image.present? %>
-            <%= image_tag @user.image, class: "user_image" %>
-          <% else %>
-            <%= image_tag "human.png", class: "user_image" %>
-          <% end %>
+        <% if @user.image.present? %>
+          <%= image_tag @user.image, class: "user_image" %>
+        <% else %>
+          <%= image_tag "human.png", class: "user_image" %>
+        <% end %>
         </div>
-        <div class="trip-contents-subtitle">
+        <div class="user-contents-subtitle2">
           <%= "#{@user.nickname}"%>
         </div>
       </div>
@@ -71,10 +71,10 @@
 
 
     <%# ユーザー投稿一覧 %>
-    <div class='trip-contents'>
-      <h2 class='trip-contents-title'>POSTS</h2>
+    <div class='user-contents'>
+      <h2 class='user-contents-title'>POSTS</h2>
       <div class='under_line2'></div>
-      <div class="trip-contents-subtitle" >
+      <div class="user-contents-subtitle" >
         ユーザー投稿一覧
       </div>
       
