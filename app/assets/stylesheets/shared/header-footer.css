@@ -5,6 +5,7 @@
 
 .top-page-header {
   width: 100vw;
+  height: 16vh;
   padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
@@ -101,6 +102,7 @@
 
 .user-img{
   border-radius: 50%;
+  border: solid 1px #fff;
   height: 3.5vh;
   width: 3.5vh;
 }
