@@ -218,6 +218,6 @@
 
 </div>
 
-<%= render "shared/google_map" %>
+<%= render partial: 'shared/google_map', locals: { trip_coordinates: @trip_coordinates } %>
 
 <%= render "shared/footer" %>

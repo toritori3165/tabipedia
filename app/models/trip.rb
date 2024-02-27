@@ -1,6 +1,8 @@
 class Trip < ApplicationRecord
-  has_many :trip_users, dependent: :destroy
-  has_many :users, through: :trip_users
+  geocoded_by :address
+  after_validation :geocode
+
+  belongs_to :user
   has_many :plans, dependent: :destroy
   has_many_attached :images
 
@@ -11,6 +13,7 @@ class Trip < ApplicationRecord
     validates :start_date, presence: { message: "を入力してください" }
     validates :end_date, presence: { message: "を入力してください" }
   end
+
 
   def self.search(search)
     if search != ""
