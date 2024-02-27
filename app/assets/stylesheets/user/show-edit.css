@@ -1,11 +1,44 @@
 /* ユーザーページ */
 .user_main{
-  margin: 16vh 50px 60px;
+  margin-top: 16vh;
+  padding: 50px 100px 80px;
+  border-top: 1px solid #cecece;
+}
+
+.user-contents-title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-family: 'Avenir', sans-serif;
+  font-weight: bold;
+}
+
+.user-contents-subtitle {
+  font-size: 2.5vh;
+  margin-bottom: 5vh;
+  text-decoration: none;
+  color: #a2a2a2;
+  font-weight: bold;
+}
+
+.user-contents-subtitle2 {
+  text-align: center;
+  font-size: 3.5vh;
+  margin-bottom: 5vh;
+  text-decoration: none;
+  color: #a2a2a2;
+  font-weight: bold;
 }
 
 .user_inner{
   display: flex;
   justify-content: left;
+  margin-bottom: 30px;
+}
+
+.user_left{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 
 .user_right{
@@ -15,21 +48,18 @@
 .user_profile_field{
   padding: 10px 0;
 }
+
 .icon{
   width: 18px;
   height: 18px;
   margin: 4px 10px 0 0;
   filter: opacity(50%);
 }
+
 .user_profile_title{
   font-size: 20px;
   font-weight: bold;
   padding-bottom: 10px;
-}
-.user_profile{
-  margin-bottom: 70px;
-  display: flex;
-  justify-content: left;
 }
 .under_line3{
   margin-top: 15px;
@@ -37,7 +67,6 @@
   width: 30vw;
 }
 .user_image{
-  margin: 30px 0 0 120px;
   border-radius: 50%;
   height: 30vh;
   width: 30vh;
