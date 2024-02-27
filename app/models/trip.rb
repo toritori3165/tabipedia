@@ -1,5 +1,5 @@
 class Trip < ApplicationRecord
-  geocoded_by :address
+  geocoded_by :place
   after_validation :geocode
 
   belongs_to :user

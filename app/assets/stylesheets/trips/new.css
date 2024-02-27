@@ -34,3 +34,12 @@
   background: #3ccace;
 }
 /* //下部ボタン */
+
+
+
+
+/* プランの記述フォーム */
+.plan-text {
+  white-space: pre-wrap;
+}
+/* //プランの記述フォーム */

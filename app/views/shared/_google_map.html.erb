@@ -1,48 +1,28 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <title>Sample_GoogleMap</title>
-    <style>
-      html { height: 100% }
-      body { height: 100% }
-      #map { height: 100%; width: 100% }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDYCBhjyECXleS0TwFxXXaHbWBrR1keUk0&callback=initMap" %>
 
-    <script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.6811673, lng: 139.7670516},
-          zoom: 15
-        });
 
-   // マーカーを追加する
-    var tripCoordinates = <%= raw @trips.to_json %>; // トリップのリストをJavaScriptのオブジェクトに変換
-    tripCoordinates.forEach(function(trip) {
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': trip.address }, function(results, status) {
-        if (status == 'OK') {
-          var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location,
-            title: trip.trip_title // 任意のタイトルを設定する
-          });
-        } else {
-          console.log('Geocode was not successful for the following reason: ' + status);
-        }
+<% @trips.each do |trip| %>
+  <div class="map">
+    <div id="map_<%= trip.id %>" data-latitude="<%= trip.latitude %>" data-longitude="<%= trip.longitude %>">
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  function initMap() {
+    <% @trips.each do |trip| %>
+      var lat_<%= trip.id %> = parseFloat(document.getElementById('map_<%= trip.id %>').dataset.latitude);
+      var lng_<%= trip.id %> = parseFloat(document.getElementById('map_<%= trip.id %>').dataset.longitude);
+
+      var map_<%= trip.id %> = new google.maps.Map(document.getElementById('map_<%= trip.id %>'), {
+        center: { lat: lat_<%= trip.id %>, lng: lng_<%= trip.id %> },
+        zoom: 15
       });
-    });
+
+      var marker_<%= trip.id %> = new google.maps.Marker({
+        position: { lat: lat_<%= trip.id %>, lng: lng_<%= trip.id %> },
+        map: map_<%= trip.id %>
+      });
+    <% end %>
   }
-
-
-      // Google Maps JavaScript APIが読み込まれた後に地図を作成する
-      google.maps.event.addDomListener(window, 'load', initMap);
-    </script>
-
-    <!-- Google Maps JavaScript APIの読み込み -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYCBhjyECXleS0TwFxXXaHbWBrR1keUk0&callback=initMap" async defer></script>
-  </body>
-</html>
+</script>

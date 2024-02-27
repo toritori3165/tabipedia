@@ -56,15 +56,6 @@
       <%= f.date_field :end_date,  class:"end_date" %>
     </div>
 
-    <div class="form-group">
-      <div class='form-text-wrap'>
-      <%= image_tag "spot.png", class: 'icon2' %>
-      <label class="form-text">住所</label>
-      <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_field :address, class:"address-text", id:"address", placeholder:"住所" %>
-    </div>
-
     <div class='form-group'>
       <%= f.submit "登録", class: 'register-blue-btn'%>
     </div>

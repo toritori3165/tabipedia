@@ -53,9 +53,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_22_090318) do
     t.string "place", null: false
     t.date "start_date", null: false
     t.date "end_date", null: false
-    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -79,4 +82,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_22_090318) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "plans", "trips"
+  add_foreign_key "trips", "users"
 end

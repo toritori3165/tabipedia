@@ -92,3 +92,4 @@ gem 'jquery-rails'
 
 gem "sassc"
 gem 'geocoder'
+gem 'gmaps4rails'

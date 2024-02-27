@@ -6,7 +6,6 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
-    @trip_coordinates = @trips.map { |trip| { latitude: trip.latitude, longitude: trip.longitude } }
   end
 
   def new
@@ -15,11 +14,11 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.users.each do |user|
-      unless user.valid?
+    # @trip.users.each do |user|
+      unless @trip.user.valid?
         puts "Invalid User: #{user.errors.full_messages.to_sentence}"
       end
-    end
+    # end
     if @trip.save
       redirect_to new_trip_plan_path(trip_id: @trip.id)
     else
