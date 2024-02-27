@@ -15,9 +15,9 @@
 | prefecture_id             | integer    | null: false                    |
 | profile                   | text       |                                |
 
-- has_many :trips, through: :trip_users
-- has_many :trip_users
+- has_many :trips
 - has_many :comments
+
 
 
 ## trips テーブル
@@ -28,22 +28,12 @@
 | place                     | string     | null: false                    |
 | start_date                | date       | null: false                    |
 | end_date                  | date       | null: false                    |
+| user                      | references | null: false, foreign_key: true |
 
-- has_many :users, through: :trip_users
-- has_many :trip_users, dependent: :destroy
+- belongs_to :user
 - has_many :plans, dependent: :destroy
 - has_many :comments, dependent: :destroy
 
-
-## trip_users テーブル
-
-| Column                    | Type       | Options                        |
-| ------------------------- | ---------- | ------------------------------ |
-| user                      | references | null: false, foreign_key: true |
-| trip                      | references | null: false, foreign_key: true |
-
-- belongs_to :user
-- belongs_to :trip
 
 
 ## plans テーブル
@@ -56,6 +46,7 @@
 
 - belongs_to :trip
 - has_many :comments, dependent: :destroy
+
 
 
 ## comments テーブル
