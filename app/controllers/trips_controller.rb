@@ -6,8 +6,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
-    #@trips = Trip.includes(:user).order("created_at DESC")
-    #@trip_users = TripUser.where(trip_id: params[:trip_id])
+    @trip_coordinates = @trips.map { |trip| { latitude: trip.latitude, longitude: trip.longitude } }
   end
 
   def new
@@ -61,7 +60,7 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:trip_title, :place, :start_date, :end_date,{ user_ids: []},{ images: []})
+    params.require(:trip).permit(:trip_title, :place, :start_date, :end_date, :address,{ images: []}).merge(user_id: current_user.id)
   end
 
   def set_trip
