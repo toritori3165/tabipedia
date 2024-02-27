@@ -1,28 +1,50 @@
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDYCBhjyECXleS0TwFxXXaHbWBrR1keUk0&callback=initMap" %>
 
 
-<% @trips.each do |trip| %>
-  <div class="map">
-    <div id="map_<%= trip.id %>" data-latitude="<%= trip.latitude %>" data-longitude="<%= trip.longitude %>">
-    </div>
-  </div>
-<% end %>
+<div id="map" style="height: 500px; width: 100%;"></div>
 
 <script type="text/javascript">
   function initMap() {
-    <% @trips.each do |trip| %>
-      var lat_<%= trip.id %> = parseFloat(document.getElementById('map_<%= trip.id %>').dataset.latitude);
-      var lng_<%= trip.id %> = parseFloat(document.getElementById('map_<%= trip.id %>').dataset.longitude);
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 8,
+      center: { lat: <%= @trips.first.latitude %>, lng: <%= @trips.first.longitude %> }
+    });
 
-      var map_<%= trip.id %> = new google.maps.Map(document.getElementById('map_<%= trip.id %>'), {
-        center: { lat: lat_<%= trip.id %>, lng: lng_<%= trip.id %> },
-        zoom: 15
+    // 各旅行の位置にマーカーを追加
+    <% @trips.each do |trip| %>
+      var contentString_<%= trip.id %> = 
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<h1 id="firstHeading" class="firstHeading"><%= trip.trip_title %></h1>' +
+        '<div id="bodyContent">' +
+        '<p><%= trip.place %></p>' + 
+        // '<img src="<%= trip.images %>>' + // 例として画像を表示
+        '</div>' +
+        '</div>';
+
+      var infowindow_<%= trip.id %> = new google.maps.InfoWindow({
+        content: contentString_<%= trip.id %>
       });
 
       var marker_<%= trip.id %> = new google.maps.Marker({
-        position: { lat: lat_<%= trip.id %>, lng: lng_<%= trip.id %> },
-        map: map_<%= trip.id %>
+        position: { lat: <%= trip.latitude %>, lng: <%= trip.longitude %> },
+        map: map,
+        title: '<%= trip.trip_title %>'
+      });
+
+      // マーカーにマウスが乗ったときのイベントハンドラを設定
+      marker_<%= trip.id %>.addListener('mouseover', function() {
+        infowindow_<%= trip.id %>.open(map, marker_<%= trip.id %>);
+      });
+
+      // マーカーをクリックした時のイベントハンドラを設定
+      marker_<%= trip.id %>.addListener('click', function() {
+        window.location.href = '<%= trip_path(trip) %>'; // trip_path(trip)は各tripの詳細ページへのリンクを生成します
       });
     <% end %>
   }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYCBhjyECXleS0TwFxXXaHbWBrR1keUk0&callback=initMap">
 </script>
