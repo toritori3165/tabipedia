@@ -50,7 +50,7 @@
 }
 
 .nav {
-  font-size: 18px;
+  font-size: 15px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -75,14 +75,12 @@
   align-items: flex-end;
 }
 
-
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
   font-weight: bold;
 }
-
 
 .logout {
   text-decoration: none;
@@ -99,6 +97,12 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+.user-img{
+  border-radius: 50%;
+  height: 3.5vh;
+  width: 3.5vh;
 }
 /* //ヘッダー */
 

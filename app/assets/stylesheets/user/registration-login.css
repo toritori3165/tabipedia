@@ -10,7 +10,7 @@
 /* form-wrapは商品購入画面でも使用しています */
 .form-wrap {
   width: 50%;
-  background-color: white;
+  background: rgba(255,255,255,0.8);
   padding-bottom: 70px;
   border-radius: 5px;
 }
@@ -120,7 +120,6 @@
 .field_with_errors {
   display: contents;
 }
-
 
 .form-bottom-text {
   font-size: 15px;

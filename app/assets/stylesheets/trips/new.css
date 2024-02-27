@@ -1,12 +1,12 @@
 /* 背景 */
 .background {
-  background-image: url(sakura.jpg);
+  background-image: url(kazari.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .background2 {
-  background-image: url(miyakojima.jpg);
+  background-image: url(matsuri1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
