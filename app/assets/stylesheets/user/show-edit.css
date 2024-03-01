@@ -75,10 +75,10 @@
   display: inline-block;
   padding: 0.3em 1.6em;
   font-size: 0.8em;
-  color: #3ccace;
+  color: #0cece4;
   text-decoration: none;
   user-select: none;
-  border: 1px #3ccace solid;
+  border: 1px #0cece4 solid;
   border-radius: 3px;
   transition: 0.4s ease;
   height: 30px;
@@ -86,6 +86,6 @@
 }
 .nav__btn:hover{
   color: #fff;
-  background: #3ccace;
+  background: #0cece4;
 }
 /*/ ユーザーページ /*/
