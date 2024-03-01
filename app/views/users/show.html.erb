@@ -23,7 +23,7 @@
           <%= image_tag "human.png", class: "user_image" %>
         <% end %>
         </div>
-        <div class="user-contents-subtitle2">
+        <div class="user-contents-username">
           <%= "#{@user.nickname}"%>
         </div>
       </div>
@@ -36,6 +36,16 @@
             <%= image_tag "email.png", class: 'icon' %>
             <%= "#{@user.email}" %>
             <% end %>
+          </div>
+
+          <div class='user_profile_field'>
+            <%= image_tag "gender.png", class: 'icon' %>
+            <%= "#{@user.gender.name}" %>
+          </div>
+
+          <div class='user_profile_field'>
+            <%= image_tag "age.png", class: 'icon' %>
+            <%= "#{@user.age.name}" %>
           </div>
 
           <div class='user_profile_field'>
@@ -90,16 +100,6 @@
               <% else %>  
                 <%= image_tag "none-image.png", class: "trip-img" %>
               <% end %>
-              <div class="trip-img-user" >
-                <%= link_to "/users/#{trip.id}" do %>
-                  <% if trip.user.image.present? %>
-                    <%= image_tag trip.user.image, class: "user-img" %>
-                  <% else %>
-                    <%= image_tag "human.png", class: "user-img" %>
-                  <% end %>
-                <% end %>
-                <%= link_to "#{trip.user.nickname}", "/users/#{trip.user.id}", class: "user-nickname2" %>
-              </div>
             </div>
             <div class='trip-info'>
               <h3 class='trip-name'>
@@ -123,10 +123,6 @@
             <div class='trip-img'>
               <%= link_to '#' do %>
               <%= image_tag "sakura.jpg", class: "trip-img" %>
-              <div class="trip-img-user" >
-                <%= image_tag "human.png", class: "user-img" %>
-                <%= link_to "投稿者さん", '#', class: "user-nickname2" %>
-              </div>
             </div>
             <div class='trip-info'>
               <h3 class='trip-name'>

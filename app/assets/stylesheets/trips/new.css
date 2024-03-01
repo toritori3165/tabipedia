@@ -38,8 +38,9 @@
 
 
 
-/* プランの記述フォーム */
-.plan-text {
+/* プランの登録フォーム */
+.content-text {
   white-space: pre-wrap;
+  height: 500px;
 }
-/* //プランの記述フォーム */
+/* //プランの登録フォーム */

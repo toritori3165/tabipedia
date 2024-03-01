@@ -15,7 +15,7 @@ class PlansController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @plan = Plan.new(plan_params)
     if @plan.save
-      redirect_to root_path
+      redirect_to trip_plan_path(@trip.id, @plan.id)
     else
       render :new, status: :unprocessable_entity
     end
@@ -49,7 +49,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:plan_title, :content ).merge(trip_id: (params[:trip_id]))
+    params.require(:plan).permit(:days_id, :plan_title, :content, { images: [] }).merge(trip_id: (params[:trip_id]))
   end
 
   def set_trip

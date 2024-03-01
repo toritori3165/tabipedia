@@ -5,10 +5,10 @@
 
 .top-page-header {
   width: 100vw;
-  height: 16vh;
-  padding: 2vh 15vw;
+  height: 11vh;
+  padding: 0 100px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   background: rgba(255, 255, 255, 0.5);
   position: absolute;
   position: fixed;
@@ -21,7 +21,7 @@
 }
 
 .furima-icon {
-  width: 10vw;
+  width: 15vw;
   margin-right: 10vw;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .search-form>.input-box {
-  width: 100%;
+  width: 80%;
   height: 5vh;
   padding-left: 10px;
 }
@@ -54,26 +54,23 @@
   font-size: 15px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  width: 100%;
+  width: 50%;
   padding: 1vh 0;
 }
 
-.lists-left {
+.lists {
   display: flex;
-  min-width: 200px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .category-list {
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
-}
-
-.lists-right {
-  display: flex;
-  list-style: none;
-  align-items: flex-end;
+  font-size: 2vh;
 }
 
 .user-nickname {
@@ -86,6 +83,7 @@
 .logout {
   text-decoration: none;
   color: #333333;
+  font-size: 2vh;
 }
 
 .login {
@@ -93,11 +91,13 @@
   line-height: 32px;
   margin-right: 3vw;
   color: #333333;
+  font-size: 2vh;
 }
 
 .sign-up {
   text-decoration: none;
   color: #333333;
+  font-size: 2vh;
 }
 
 .user-img{
@@ -105,6 +105,14 @@
   border: solid 1px #fff;
   height: 3.5vh;
   width: 3.5vh;
+}
+
+.user-img-header{
+  border-radius: 50%;
+  border: solid 1px #fff;
+  height: 3.5vh;
+  width: 3.5vh;
+  margin-right: 20px;
 }
 /* //ヘッダー */
 
@@ -142,11 +150,12 @@
 }
 
 .logo-white {
-  width: 20vh;
+  width: 30vh;
   vertical-align: bottom;
+  margin-bottom: 30px;
 }
 
 .footer>p {
-  font-size: 14px;
+  font-size: 12px;
 }
 /* //フッター */

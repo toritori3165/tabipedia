@@ -1,8 +1,8 @@
 /* ユーザーページ */
 .user_main{
-  margin-top: 16vh;
+  margin-top: 11vh;
   padding: 50px 100px 80px;
-  border-top: 1px solid #cecece;
+  border-top: 1px solid #efeded;
 }
 
 .user-contents-title {
@@ -14,18 +14,18 @@
 
 .user-contents-subtitle {
   font-size: 2.5vh;
-  margin-bottom: 5vh;
+  margin-bottom: 5vh;       
   text-decoration: none;
   color: #a2a2a2;
   font-weight: bold;
 }
 
-.user-contents-subtitle2 {
+.user-contents-username {
   text-align: center;
-  font-size: 3.5vh;
+  font-size: 3.2vh;
   margin-bottom: 5vh;
   text-decoration: none;
-  color: #a2a2a2;
+  color: black;
   font-weight: bold;
 }
 
@@ -75,10 +75,10 @@
   display: inline-block;
   padding: 0.3em 1.6em;
   font-size: 0.8em;
-  color: #ea9630;
+  color: #3ccace;
   text-decoration: none;
   user-select: none;
-  border: 1px #ea9630 solid;
+  border: 1px #3ccace solid;
   border-radius: 3px;
   transition: 0.4s ease;
   height: 30px;
@@ -86,6 +86,6 @@
 }
 .nav__btn:hover{
   color: #fff;
-  background: #ea9630;
+  background: #3ccace;
 }
 /*/ ユーザーページ /*/

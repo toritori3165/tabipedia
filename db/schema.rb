@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_22_090318) do
   end
 
   create_table "plans", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "days_id", null: false
     t.string "plan_title", null: false
     t.text "content", null: false
     t.bigint "trip_id", null: false

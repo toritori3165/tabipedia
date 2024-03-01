@@ -27,7 +27,7 @@
   <%# /画面上部の「人生を変える旅行アプリ」帯部分  %>
 
 
-  <%# 投稿一覧 %>
+  <%# トリップ投稿一覧 %>
   <div class='trip-contents'>
     <h2 class='trip-contents-title'>PICK UP</h2>
     <div class='under_line2'></div>
@@ -103,10 +103,10 @@
     </ul>
 
   </div>
-  <%# /投稿一覧 %>
+  <%# /トリップ投稿一覧 %>
 
 
-
+  <%# トリップ投稿地図一覧 %>
   <div class='trip-contents'>
     <h2 class='trip-contents-title'>MAP</h2>
     <div class='under_line2'></div>
@@ -114,13 +114,19 @@
       地図からプランを探そう
     </div>
 
+    <%= render partial: 'shared/google_map' %>
+  </div>
+  <%# /トリップ投稿地図一覧 %>
+
+
+  <%# あなたの旅を投稿 %>
   <%= link_to new_trip_path, data: { turbo: false }, class: 'trip-btn', style:'z-index:10000' do %>
     <span class='trip-btn-text'>あなたの<br>旅を投稿</span>
     <%= image_tag 'suitcase.png' , size: '185x50' ,class: "trip-btn-icon" %>
   <% end %>
+  <%# /あなたの旅を投稿 %>
 
 </div>
 
- <%= render partial: 'shared/google_map' %>
 
 <%= render "shared/footer" %>

@@ -27,19 +27,21 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 5vh 15vw;
+  padding: 5vh 100px;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
   position: relative;
 }
 
 .service-title {
-  font-size: 8vh;
+  font-size: 6.5vh;
+  font-family: 'Avenir', sans-serif;
 }
 
 .service-explain {
   font-size: 2.5vh;
   line-height: 40px;
+  font-family: 'Avenir', sans-serif;
 }
 
 .store-btn {
@@ -223,3 +225,36 @@ a {
   width: 60%;
 }
 /* //旅行登録ボタン */
+
+
+
+
+/* トリップ詳細（プラン一覧） */
+.under_line4 {
+  margin: 5px 0 15px;
+  border-bottom: solid 1px #cecece;
+  width: 100%;
+}
+
+.trip-main-img {
+  width: 70vw;
+  margin-bottom: 30px;
+}
+
+.trip-detail_field {
+  display: flex;
+  justify-content: space-between;
+}
+/* //トリップ詳細（プラン一覧） */
+
+
+
+/* プラン詳細 */
+.plan-contents-subtitle {
+  font-size: 4vh;
+  margin-bottom: 5vh;       
+  text-decoration: none;
+  color: #a2a2a2;
+  font-weight: bold;
+}
+/* //プラン詳細 */

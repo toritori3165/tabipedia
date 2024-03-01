@@ -1,9 +1,107 @@
 <script src="/assets/rails-ujs.js"></script>
-<%= link_to "プラン登録", new_trip_plan_path, data: { turbo: false }, class: "navi_btn" %>
 
-<% @plans.each do |plan| %>
-  <%= link_to plan.plan_title, trip_plan_path(trip_id: @trip.id, id: plan.id), data: { turbo: false }, class: "navi_btn" %>
-<% end %>
+<div class='main'>
 
-<%= link_to "旅行名編集", edit_trip_path(@trip.id), data: { turbo: false }, class: "navi_btn" %>
-<%= link_to "旅行全削除", trip_path(@trip.id), method: :delete, data: {confirm: "削除しますか？"} %>
+  <%= render "shared/header" %>
+
+  <div class='user_main'> 
+
+    <%# トリップ情報 %>
+    <div class='user-contents'>
+      <h2 class='user-contents-title'>YOUR TRIP</h2>
+      <div class='under_line2'></div>
+      <div class="user-contents-subtitle">旅の情報</div>
+    </div>
+
+    <div class="trip-main-img">
+      <% if @trip.images.attached? %>
+        <%= image_tag @trip.images[0], class: "trip-main-img" %>
+      <% else %>  
+        <%= image_tag "none-image.png", class: "trip-img" %>
+      <% end %>
+    </div>
+
+    <h2 class='trip-contents-title'>
+      <%= "#{@trip.trip_title}" %>
+    </h2>
+    <div class='under_line4'></div>
+
+    <div class='trip-detail_field'>
+
+      <div class='trip-detail_field_left'>
+        <div class='user_profile_field'>
+          <%= image_tag "spot.png", class: 'icon' %>
+          <%= "#{@trip.place}" %>
+        </div>
+
+        <div class='user_profile_field'>
+          <%= image_tag "date.png", class: 'icon' %>
+          <%= "#{@trip.start_date} 〜 #{@trip.end_date}" %>
+        </div>
+      </div>
+
+      <div class='trip-detail_field_right'>
+        <div class='user_profile_field'>
+          <%= image_tag "pencil.png", class: 'icon' %>
+          <%= link_to " トリップ情報編集", edit_trip_path(@trip.id), data: { turbo: false }, class: "nav__btn" %>
+        </div>
+
+        <div class='user_profile_field'>
+          <%= image_tag "gomi.png", class: 'icon' %>
+          <%= link_to " トリップ情報削除", trip_path(@trip.id), method: :delete, data: {confirm: "削除しますか？"}, class: "nav__btn" %>
+        </div>
+      </div>
+    </div>
+    <%# /トリップ情報 %>
+
+
+    <%# プラン投稿一覧 %>
+    <ul class='trip-lists'>
+
+      <% @plans.each do |plan| %>
+      <li class='list'>
+        <%= link_to trip_plan_path(@trip, plan), data: { turbo: false } do %>
+          <div class='trip-img'>
+            <% if plan.images.attached? %>
+              <%= image_tag plan.images[0], class: "trip-img" %>
+            <% else %>  
+              <%= image_tag "none-image.png", class: "trip-img" %>
+            <% end %>
+          </div>
+          <div class='trip-info'>
+            <h3 class='user-contents-title'>
+              <%= "#{plan.days.name}" %>
+            </h3>
+            <h4 class='plan-contents-subtitle'>
+              <%= "#{plan.plan_title}" %>
+            </h4>
+            <div class='trip-detail'>
+              <div class='good-btn'>
+                <%= image_tag "good.png", class:"good-icon" %>
+                <span class='good-count'>10</span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+
+    </ul>
+    <%# /プラン投稿一覧 %>
+
+  </div>
+
+
+  <%# プラン追加登録 %>
+  <%= link_to new_trip_plan_path, data: { turbo: false }, class: 'trip-btn', style:'z-index:10000' do %>
+    <span class='trip-btn-text'>2日目以降の<br>プランを<br>追加登録</span>
+    <%= image_tag 'traveler.png' , size: '185x50' ,class: "trip-btn-icon" %>
+  <% end %>
+  <%# /プラン追加登録 %>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
