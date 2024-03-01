@@ -40,6 +40,7 @@
 
 | Column                    | Type       | Options                        |
 | ------------------------- | ---------- | ------------------------------ |
+| days_id                   | integer    | null: false                    |
 | plan_title                | string     | null: false                    |
 | content                   | text       | null: false                    |
 | trip                      | references | null: false, foreign_key: true |
