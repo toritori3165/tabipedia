@@ -1,5 +1,52 @@
 <script src="/assets/rails-ujs.js"></script>
-  <%= @plan.plan_title %>
-  <%= @plan.content %>
-<%= link_to "プラン編集", edit_trip_plan_path(@trip.id), data: { turbo: false }, class: "navi_btn" %>
-<%= link_to "プラン削除", trip_plan_path(@trip.id), method: :delete, data: {confirm: "削除しますか？"}%>
+
+<div class='main'>
+
+  <%= render "shared/header" %>
+
+  <div class='user_main'>
+
+    <%# プラン詳細情報 %>
+    <div class='user-contents'>
+      <h2 class='user-contents-title'><%= @plan.days.name %></h2>
+      <div class='under_line2'></div>
+      <div class="plan-contents-subtitle"><%= @plan.plan_title %></div>
+    </div>
+
+    <div class="trip-main-img">
+      <% if @plan.images.attached? %>
+        <%= image_tag @plan.images[0], class: "trip-main-img" %>
+      <% else %>  
+        <%= image_tag "none-image.png", class: "trip-img" %>
+      <% end %>
+    </div>
+
+    <div class='trip-detail_field'>
+
+      <div class='trip-detail_field_left'>
+        <div class='user_profile_field', style="white-space: pre-wrap;"><%= "#{@plan.content}" %></div>
+
+        <div class='user_profile_field'>
+          <%= link_to "BACK", trip_path(@trip.id), data: { turbo: false }, class: "nav__btn" %>
+        </div>
+      </div>
+
+      <div class='trip-detail_field_right'>
+        <div class='user_profile_field'>
+          <%= image_tag "pencil.png", class: 'icon' %>
+          <%= link_to "プラン情報編集", edit_trip_plan_path(@trip.id), data: { turbo: false }, class: "nav__btn" %>
+        </div>
+
+        <div class='user_profile_field'>
+          <%= image_tag "gomi.png", class: 'icon' %>
+          <%= link_to "プラン情報削除", trip_plan_path(@trip.id), method: :delete, data: {confirm: "削除しますか？"}, class: "nav__btn" %>
+        </div>
+      </div>
+    </div>
+    <%# /プラン詳細情報 %>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
