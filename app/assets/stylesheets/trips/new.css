@@ -21,8 +21,8 @@
   width: 100%;
   text-align: center;
   background: #fff;
-  border: 1px solid #3ccace;
-  color: #3ccace;
+  border: 1px solid #0cece4;
+  color: #0cece4;
   line-height: 48px;
   font-size: 14px;
   cursor: pointer;
@@ -31,7 +31,7 @@
 
 .register-blue-btn:hover{
   color: #fff;
-  background: #3ccace;
+  background: #0cece4;
 }
 /* //下部ボタン */
 
