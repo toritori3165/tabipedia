@@ -6,7 +6,7 @@
     <%= form_with(url: search_trips_path, local: true, method: :get, class: "search-form") do |form| %>
       <%= form.text_field :keyword, placeholder: "キーワードから検索する", class: "input-box" %>
       <button class="search-button">
-      <%= form.submit %>
+      <% form.submit %>
       <%= image_tag "search.png", class:"search-icon" %>
       </button>
     <% end %>
