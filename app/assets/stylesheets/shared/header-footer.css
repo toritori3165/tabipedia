@@ -20,9 +20,13 @@
   align-items: center;
 }
 
-.furima-icon {
+.tabipedia-icon {
   width: 15vw;
   margin-right: 10vw;
+}
+
+.tabipedia-icon:hover {
+  transform: scale(1.05);
 }
 
 .search-form {

@@ -1,7 +1,7 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header', style='z-index:10000' >
   <div class='search-bar-contents'>
-    <%= link_to image_tag("tabipedia-logo2.png", class:"furima-icon"), "/" %>
+    <%= link_to image_tag("tabipedia-logo2.png", class:"tabipedia-icon"), "/" %>
     
     <%= form_with(url: search_trips_path, local: true, method: :get, class: "search-form") do |form| %>
       <%= form.text_field :keyword, placeholder: "キーワードから検索する", class: "input-box" %>
