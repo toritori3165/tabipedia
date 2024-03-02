@@ -19,16 +19,16 @@
           <li>
           <%= link_to "/users/#{current_user.id}" do %>
             <% if current_user.image.present? %>
-              <%= image_tag current_user.image, class: "user-img-header" %>
+              <%= image_tag current_user.image, class: "user-img" %>
             <% else %>
-              <%= image_tag "human.png", class: "user-img-header" %>
+              <%= image_tag "human.png", class: "user-img" %>
             <% end %>
           <% end %>
           </li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, class: "logout" %></li>
         <% else %>
           <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-          <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class: "login" %></li>
         <% end %>
       </ul>
     </div>

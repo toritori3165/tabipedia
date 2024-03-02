@@ -25,6 +25,7 @@
   background: rgba(235,235,235,0.5);
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .second-fotter-text-wrap {
@@ -42,6 +43,5 @@
 .second-fotter-logo {
   width: 185px;
   height: 49px;
-  margin: 0 auto;
 }
 /* //セカンドフッター */

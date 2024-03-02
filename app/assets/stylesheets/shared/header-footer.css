@@ -21,12 +21,12 @@
 }
 
 .tabipedia-icon {
-  width: 15vw;
+  width: 13vw;
   margin-right: 10vw;
 }
 
 .tabipedia-icon:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .search-form {
@@ -77,29 +77,16 @@
   font-size: 2vh;
 }
 
-.user-nickname {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-weight: bold;
-}
-
 .logout {
   text-decoration: none;
   color: #333333;
   font-size: 2vh;
+  margin-left: 3vw;
 }
 
 .login {
   text-decoration: none;
-  line-height: 32px;
   margin-right: 3vw;
-  color: #333333;
-  font-size: 2vh;
-}
-
-.sign-up {
-  text-decoration: none;
   color: #333333;
   font-size: 2vh;
 }
@@ -111,13 +98,10 @@
   width: 3.5vh;
 }
 
-.user-img-header{
-  border-radius: 50%;
-  border: solid 1px #fff;
-  height: 3.5vh;
-  width: 3.5vh;
-  margin-right: 20px;
+.user-img:hover {
+  transform: scale(1.1);
 }
+
 /* //ヘッダー */
 
 
