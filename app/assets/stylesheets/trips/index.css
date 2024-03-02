@@ -101,10 +101,11 @@ a {
 }
 
 .trip-contents-title {
-  font-size: 7vh;
+  font-size: 6vh;
   line-height: 1.4;
   font-family: 'Avenir', sans-serif;
   font-weight: bold;
+  letter-spacing: 0.1em;
 }
 
 .trip-contents-subtitle {
@@ -252,7 +253,7 @@ a {
 /* プラン詳細 */
 .plan-contents-subtitle {
   font-size: 4vh;
-  margin-bottom: 5vh;       
+  margin-bottom: 5vh;
   text-decoration: none;
   color: #a2a2a2;
   font-weight: bold;
