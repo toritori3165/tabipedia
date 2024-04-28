@@ -105,10 +105,6 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
-    dotenv (3.1.0)
-    dotenv-rails (3.1.0)
-      dotenv (= 3.1.0)
-      railties (>= 6.1)
     erubi (1.12.0)
     execjs (2.9.1)
     factory_bot (6.4.6)
@@ -329,7 +325,6 @@ DEPENDENCIES
   capybara
   debug
   devise
-  dotenv-rails
   factory_bot_rails
   faker
   geocoder
