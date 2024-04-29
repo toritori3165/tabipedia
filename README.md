@@ -52,7 +52,7 @@ https://tabipedia.onrender.com
 
 
 # 画面遷移図
-![alt text](<スクリーンショット 2024-04-11 17.03.09.png>)
+![alt text](<スクリーンショット 2024-04-29 13.02.19.png>)
 
 
 # 開発環境
