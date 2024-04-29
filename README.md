@@ -48,10 +48,12 @@ https://tabipedia.onrender.com
 
 
 # データベース設計
-![alt text](<スクリーンショット 2024-04-11 17.01.03.png>)
+![alt text](<スクリーンショット 2024-04-29 12.32.05.png>)
+
 
 # 画面遷移図
 ![alt text](<スクリーンショット 2024-04-11 17.03.09.png>)
+
 
 # 開発環境
 * Ruby on Rails
