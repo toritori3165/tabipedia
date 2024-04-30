@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :trips
-  has_many :comments
+  has_many :trip_comments
+  has_many :plan_comments
   has_one_attached :image
 
   validates :password, 

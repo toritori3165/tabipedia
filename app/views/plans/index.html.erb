@@ -92,6 +92,29 @@
     </ul>
     <%# /プラン投稿一覧 %>
 
+
+    <%# コメント投稿 %>
+    <div class = "container">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@trip, @trip_comment], local: true) do |form| %>
+          <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+          <%= form.submit "SEND" %>
+        <% end %>
+      <% else %>
+        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <% end %>
+      <div class="comments">
+        <h4>＜コメント一覧＞</h4>
+        <% @trip_comments.each do |trip_comment| %>
+          <p>
+            <strong><%= link_to trip_comment.user.nickname, "/users/#{trip_comment.user_id}" %>:</strong>
+            <%= trip_comment.text %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <%# /コメント投稿 %>
+
   </div>
 
 
@@ -104,7 +127,6 @@
   <% end %>
   <%# /プラン追加登録 %>
 
-  </div>
 
 </div>
 

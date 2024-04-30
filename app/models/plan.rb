@@ -1,5 +1,6 @@
 class Plan < ApplicationRecord
   belongs_to :trip
+  has_many :plan_comments
   has_many_attached :images
 
   with_options presence: true do

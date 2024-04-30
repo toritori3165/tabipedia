@@ -45,6 +45,29 @@
     </div>
     <%# /プラン詳細情報 %>
 
+
+    <%# コメント投稿 %>
+    <div class = "container">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@plan, @plan_comment], url: trip_plans_path, local: true) do |form| %>
+          <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+          <%= form.submit "SEND" %>
+        <% end %>
+      <% else %>
+        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <% end %>
+      <div class="comments">
+        <h4>＜コメント一覧＞</h4>
+        <% @plan_comments.each do |plan_comment| %>
+          <p>
+            <strong><%= link_to plan_comment.user.nickname, "/users/#{plan_comment.user_id}" %>:</strong>
+            <%= plan_comment.text %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <%# /コメント投稿 %>
+
   </div>
 
 </div>

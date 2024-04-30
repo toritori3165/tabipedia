@@ -4,6 +4,7 @@ class Trip < ApplicationRecord
 
   belongs_to :user
   has_many :plans, dependent: :destroy
+  has_many :trip_comments
   has_many_attached :images
 
 

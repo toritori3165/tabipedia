@@ -3,6 +3,8 @@ class PlansController < ApplicationController
 
   def index
     @plans = @trip.plans
+    @trip_comment = TripComment.new
+    @trip_comments = @trip.trip_comments.includes(:user).order("created_at DESC")
   end
 
 
@@ -24,6 +26,8 @@ class PlansController < ApplicationController
  
   def show
     @plan = Plan.find(params[:id])
+    @plan_comment = PlanComment.new
+    @plan_comments = @plan.plan_comments.includes(:user).order("created_at DESC")
   end
 
   def edit

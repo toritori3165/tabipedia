@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_22_090318) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_30_091026) do
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_22_090318) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "plan_comments", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "plan_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "plans", charset: "utf8mb4", force: :cascade do |t|
     t.integer "days_id", null: false
     t.string "plan_title", null: false
@@ -47,6 +55,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_22_090318) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_plans_on_trip_id"
+  end
+
+  create_table "trip_comments", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "trip_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trips", charset: "utf8mb4", force: :cascade do |t|
