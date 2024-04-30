@@ -49,7 +49,7 @@ class TripsController < ApplicationController
   end
 
   def search
-    @trips = Trip.search(params[:keyword])
+    @trips = Trip.search(params[:keyword], params[:keyword]).order("created_at DESC")
   end 
   
   private
