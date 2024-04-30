@@ -40,6 +40,7 @@
         </div>
       </div>
 
+      <% if user_signed_in? && current_user.id == @trip.user_id %>
       <div class='trip-detail_field_right'>
         <div class='user_profile_field'>
           <%= image_tag "pencil.png", class: 'icon' %>
@@ -51,6 +52,7 @@
           <%= link_to " トリップ情報削除", trip_path(@trip.id), method: :delete, data: {confirm: "削除しますか？"}, class: "nav__btn" %>
         </div>
       </div>
+      <% end %>
     </div>
     <%# /トリップ情報 %>
 
@@ -94,9 +96,11 @@
 
 
   <%# プラン追加登録 %>
-  <%= link_to new_trip_plan_path, data: { turbo: false }, class: 'trip-btn', style:'z-index:10000' do %>
-    <span class='trip-btn-text'>2日目以降の<br>プランを<br>追加登録</span>
-    <%= image_tag 'traveler.png' , size: '185x50' ,class: "trip-btn-icon" %>
+  <% if user_signed_in? && current_user.id == @trip.user_id %>
+    <%= link_to new_trip_plan_path, data: { turbo: false }, class: 'trip-btn', style:'z-index:10000' do %>
+      <span class='trip-btn-text'>2日目以降の<br>プランを<br>追加登録</span>
+      <%= image_tag 'traveler.png' , size: '185x50' ,class: "trip-btn-icon" %>
+    <% end %>
   <% end %>
   <%# /プラン追加登録 %>
 
