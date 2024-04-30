@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   #before_action :set_users
 
   def show
-    @trips = Trip.where(user_id: @user.id)
+    @trips = Trip.where(user_id: @user.id).order("created_at DESC")
   end
 
   def edit

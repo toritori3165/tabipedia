@@ -1,8 +1,85 @@
-<%= form_with(url: search_trips_path, local: true, method: :get, class: "search-form") do |form| %>
- <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
- <%= form.submit "検索", class: "search-btn" %>
-<% end %> 
+<div class='main'>
 
-<% @trips.each do |trip| %>
-  <%= link_to trip.trip_title, trip_path(trip.id) %>
-<% end %>
+<%= render "shared/header" %>
+
+<div class='search_main'>
+
+<%# トリップ投稿一覧 %>
+<div class='trip-contents'>
+  <h2 class='trip-contents-title'>PICK UP</h2>
+  <div class='under_line2'></div>
+  <div class="trip-contents-subtitle" >
+    旅のプランを探そう
+  </div>
+  <ul class='trip-lists'>
+
+    <% if @trips.length != 0 %>
+      <% @trips.each do |trip| %>
+      <li class='list'>
+        <%= link_to trip_path(trip.id) do %>
+        <div class='trip-img'>
+          <% if trip.images.attached? %>
+            <%= image_tag trip.images[0], class: "trip-img" %>
+          <% else %>  
+            <%= image_tag "none-image.png", class: "trip-img" %>
+          <% end %>
+          <div class="trip-img-user" >
+            <%= link_to "/users/#{trip.user.id}" do %>
+              <% if trip.user.image.present? %>
+                <%= image_tag trip.user.image, class: "user-img" %>
+              <% else %>
+                <%= image_tag "human.png", class: "user-img" %>
+              <% end %>
+            <% end %>
+            <%= link_to "#{trip.user.nickname}", "/users/#{trip.user.id}", class: "user-nickname" %>
+          </div>
+        </div>
+        <div class='trip-info'>
+          <h3 class='trip-name'>
+            <%= "#{trip.trip_title}" %>
+          </h3>
+          <div class='trip-detail'>
+            <span><%= image_tag "spot.png", class:"spot-icon" %><%= "#{trip.place}" %>
+            <br><%= image_tag "date.png", class:"spot-icon" %><%= "#{trip.start_date}" %>〜</span>
+            <div class='good-btn'>
+              <%= image_tag "good.png", class:"good-icon" %>
+              <span class='good-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+
+    <% else %>
+      <li class='list'>
+        <div class='trip-img'>
+          <%= link_to '#' do %>
+          <%= image_tag "sakura.jpg", class: "trip-img" %>
+          <div class="trip-img-user" >
+            <%= image_tag "human.png", class: "user-img" %>
+            <%= link_to "投稿者さん", '#', class: "user-nickname2" %>
+          </div>
+        </div>
+        <div class='trip-info'>
+          <h3 class='trip-name'>
+            おすすめの旅を投稿してね！
+          </h3>
+          <div class='trip-detail'>
+            <span><%= image_tag "spot.png", class:"spot-icon" %>東京
+            <br><%= image_tag "date.png", class:"spot-icon" %>2024年2月〜</span>
+            <div class='good-btn'>
+              <%= image_tag "good.png", class:"good-icon" %>
+              <span class='good-count'>10</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
+<%# /トリップ投稿一覧 %>
+</div>
+</div>

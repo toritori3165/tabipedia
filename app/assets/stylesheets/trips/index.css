@@ -264,3 +264,13 @@ a {
   font-weight: bold;
 }
 /* //プラン詳細 */
+
+
+
+/* 検索画面 */
+.search_main{
+  margin-top: 11vh;
+  padding: 50px 0px 80px;
+  border-top: 1px solid #efeded;
+}
+/* //検索画面 */
