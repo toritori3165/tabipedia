@@ -92,7 +92,8 @@ https://tabipedia.onrender.com
 | profile                   | text       |                                |
 
 - has_many :trips
-- has_many :comments
+- has_many :trip_comments
+- has_many :plan_comments
 
 
 
@@ -108,7 +109,7 @@ https://tabipedia.onrender.com
 
 - belongs_to :user
 - has_many :plans, dependent: :destroy
-- has_many :comments, dependent: :destroy
+- has_many :trip_comments, dependent: :destroy
 
 
 
@@ -122,19 +123,30 @@ https://tabipedia.onrender.com
 | trip                      | references | null: false, foreign_key: true |
 
 - belongs_to :trip
-- has_many :comments, dependent: :destroy
+- has_many :plan_comments, dependent: :destroy
 
 
 
-### ■ comments テーブル
+### ■ trip_comments テーブル
 
 | Column                    | Type       | Options                        |
 | ------------------------- | ---------- | ------------------------------ |
 | content                   | text       | null: false                    |
 | user                      | references | null: false, foreign_key: true |
 | trip                      | references | null: false, foreign_key: true |
-| plan                      | references | null: false, foreign_key: true |
 
 - belongs_to :user
 - belongs_to :trip
+
+
+
+### ■ plan_comments テーブル
+
+| Column                    | Type       | Options                        |
+| ------------------------- | ---------- | ------------------------------ |
+| content                   | text       | null: false                    |
+| user                      | references | null: false, foreign_key: true |
+| plan                      | references | null: false, foreign_key: true |
+
+- belongs_to :user
 - belongs_to :plan
