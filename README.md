@@ -48,7 +48,7 @@ https://tabipedia.onrender.com
 
 
 # データベース設計
-![alt text](<スクリーンショット 2024-04-30 18.50.53.png>)
+![alt text](<スクリーンショット 2024-05-01 14.11.17.png>)
 
 
 # 画面遷移図
@@ -91,9 +91,9 @@ https://tabipedia.onrender.com
 | prefecture_id             | integer    | null: false                    |
 | profile                   | text       |                                |
 
-- has_many :trips
-- has_many :trip_comments
-- has_many :plan_comments
+- has_many :trips, dependent: :destroy
+- has_many :trip_comments, dependent: :destroy
+- has_many :plan_comments, dependent: :destroy
 
 
 
@@ -131,7 +131,7 @@ https://tabipedia.onrender.com
 
 | Column                    | Type       | Options                        |
 | ------------------------- | ---------- | ------------------------------ |
-| content                   | text       | null: false                    |
+| text                      | text       | null: false                    |
 | user                      | references | null: false, foreign_key: true |
 | trip                      | references | null: false, foreign_key: true |
 
@@ -144,7 +144,7 @@ https://tabipedia.onrender.com
 
 | Column                    | Type       | Options                        |
 | ------------------------- | ---------- | ------------------------------ |
-| content                   | text       | null: false                    |
+| text                      | text       | null: false                    |
 | user                      | references | null: false, foreign_key: true |
 | plan                      | references | null: false, foreign_key: true |
 
