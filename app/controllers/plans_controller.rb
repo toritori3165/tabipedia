@@ -37,9 +37,9 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     if @plan.update(plan_params)
-      redirect_to trip_plan_path(@trip.id)
+      redirect_to trip_plan_path(@trip.id, @plan.id)
     else
-      render 'edit'
+      render 'edit', status: :unprocessable_entity
     end
   end
 
@@ -57,7 +57,7 @@ class PlansController < ApplicationController
   end
 
   def set_trip
-  @trip = Trip.find(params[:trip_id])
+    @trip = Trip.find(params[:trip_id])
   end
 
 end

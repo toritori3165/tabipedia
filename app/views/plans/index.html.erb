@@ -29,6 +29,18 @@
     <div class='trip-detail_field'>
 
       <div class='trip-detail_field_left'>
+
+        <div class='user_profile_field'>
+          <%= link_to "/users/#{@trip.user.id}" do %>
+            <% if @trip.user.image.present? %>
+              <%= image_tag @trip.user.image, class: "user-img" %>
+            <% else %>
+              <%= image_tag "human.png", class: "user-img" %>
+            <% end %>
+          <% end %>
+          <%= link_to "#{@trip.user.nickname}", "/users/#{@trip.user.id}", class: "user-nickname" %>
+        </div>
+
         <div class='user_profile_field'>
           <%= image_tag "spot.png", class: 'icon' %>
           <%= "#{@trip.place}" %>
@@ -95,21 +107,29 @@
 
     <%# コメント投稿 %>
     <div class = "container">
+      <div class = "comment_input_box">
       <% if user_signed_in? %>
         <%= form_with(model: [@trip, @trip_comment], local: true) do |form| %>
-          <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-          <%= form.submit "SEND" %>
+        <%= form.text_area :text, class: 'comment_input', placeholder: "コメントする" %>
+        <%= form.submit "SEND", class: "nav__btn2" %>
         <% end %>
       <% else %>
-        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+        <p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></div>
       <% end %>
+      </div>
       <div class="comments">
-        <h4>＜コメント一覧＞</h4>
         <% @trip_comments.each do |trip_comment| %>
-          <p>
-            <strong><%= link_to trip_comment.user.nickname, "/users/#{trip_comment.user_id}" %>:</strong>
-            <%= trip_comment.text %>
-          </p>
+        <p>
+          <%= link_to "/users/#{trip_comment.user.id}" do %>
+            <% if trip_comment.user.image.present? %>
+              <%= image_tag trip_comment.user.image, class: "user-img" %>
+            <% else %>
+              <%= image_tag "human.png", class: "user-img" %>
+            <% end %>
+          <% end %>
+          <%= link_to "#{trip_comment.user.nickname}", "/users/#{trip_comment.user.id}", class: "user-nickname" %>
+          <%= trip_comment.text %>
+        </p>
         <% end %>
       </div>
     </div>

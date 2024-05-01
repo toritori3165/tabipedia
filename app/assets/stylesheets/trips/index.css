@@ -267,6 +267,38 @@ a {
 
 
 
+/* コメント投稿 */
+.container {
+  margin: 50px 0;
+}
+.comment_input{
+  height: 50px;
+  width: 760px;
+  border: 1px #cecece solid;
+  border-radius: 3px;
+}
+.nav__btn2{
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.3em 1.6em;
+  font-size: 0.8em;
+  color: #0cece4;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #0cece4 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  text-align: center;
+  height: 50px;
+}
+.nav__btn2:hover{
+  color: #fff;
+  background: #0cece4;
+}
+/* //コメント投稿 */
+
+
+
 /* 検索画面 */
 .search_main{
   margin-top: 11vh;
