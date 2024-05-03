@@ -8,19 +8,68 @@ a {
 }
 
 
-
 /* 画面上部の「あなたに合った旅が見つかる」帯部分 */
 .title-images {
   width: 100vw;
   height: 100vh;
-  background-image: url(himawari.jpg);
+  /* background-image: url(himawari.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  animation: slider-1 24s linear infinite;
+  list-style: none; */
+  position: relative;
+  overflow: hidden;
+}.title-images>div{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 10;
+  /* 追記 */
+  opacity: 0;
+  animation-name: fade;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+}
+@keyframes fade {
+  0%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }
+  80%{
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100%{
+    opacity: 0;
+    z-index: 0;
+  }
+}
+/* 1枚目のスライド */
+.title-images>div:first-of-type{
+  background-image: url(himawari.jpg);
+}
+/* 2枚目のスライド */
+.title-images>div:nth-of-type(2){
+  background-image: url(naruto-kaikyo.jpg);
+  animation-delay: 7s;
+}
+/* 3枚目のスライド */
+.title-images>div:last-of-type{
+  background-image: url(fujisan.jpg);
+  animation-delay: 14s;
 }
 
+
 .title-contents {
+  position: absolute;
+  top :50px;
   width: 100vw;
   height: 100vh;
   display: flex;
