@@ -16,8 +16,7 @@
     <div class="trip-main-img">
       <% if @trip.images.attached? %>
         <%= image_tag @trip.images[0], class: "trip-main-img" %>
-      <% else %>  
-        <%= image_tag "none-image.png", class: "trip-img" %>
+
       <% end %>
     </div>
 
@@ -31,6 +30,7 @@
       <div class='trip-detail_field_left'>
 
         <div class='user_profile_field'>
+          <% if @trip.user.present? %>
           <%= link_to "/users/#{@trip.user.id}" do %>
             <% if @trip.user.image.present? %>
               <%= image_tag @trip.user.image, class: "user-img" %>
@@ -39,6 +39,7 @@
             <% end %>
           <% end %>
           <%= link_to "#{@trip.user.nickname}", "/users/#{@trip.user.id}", class: "user-nickname" %>
+          <% end %>
         </div>
 
         <div class='user_profile_field'>
