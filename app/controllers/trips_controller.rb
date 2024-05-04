@@ -4,7 +4,11 @@ class TripsController < ApplicationController
 
 
   def index
-    @trips = Trip.includes(:user).order("created_at DESC")
+    @trips = if Trip.all.length.positive?
+               Trip.includes(:user).order('created_at DESC')
+             else
+               [Trip.default]
+             end
   end
 
   def new
