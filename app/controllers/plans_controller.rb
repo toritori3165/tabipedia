@@ -57,7 +57,7 @@ class PlansController < ApplicationController
   end
 
   def set_trip
-    @trip = Trip.find(params[:trip_id])
+    @trip = Trip.find_with_default(params[:trip_id])
   end
 
 end

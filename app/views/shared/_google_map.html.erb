@@ -4,9 +4,11 @@
 
 <script type="text/javascript">
   function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
-      center: { lat: <%= @trips.first.latitude %>, lng: <%= @trips.first.longitude %> }
+    if trips.length > 0
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: { lat: <%= @trips.first.latitude %>, lng: <%= @trips.first.longitude %> }
+    end
     });
 
     // 各旅行の位置にマーカーを追加
@@ -14,7 +16,7 @@
       var contentString_<%= trip.id %> = 
         '<div id="content">' +
         '<div id="siteNotice">' +
-        '</div>' +
+        '</div>' +  
         '<h1 id="firstHeading" class="firstHeading"><%= trip.trip_title %></h1>' +
         '<div id="bodyContent">' +
         '<p><%= trip.place %></p>' + 
