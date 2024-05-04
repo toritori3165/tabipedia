@@ -22,6 +22,23 @@ class User < ApplicationRecord
     validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   end
 
+
+  def self.default
+    dummy_data = {
+      "id": '0',
+      "email": 'dammy@gmail.com',
+      "encrypted_password": 'dummy1234',
+      "nickname": 'ダミー',
+      "gender_id": '2',
+      "age_id": '34',
+      "birthday": '1990-01-01',
+      "prefecture_id": '2',
+      "profile": 'こんにちは！'
+    }
+    new(dummy_data)
+  end
+
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
   belongs_to :age
