@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   def self.default
     dummy_data = {
-      "id": '0',
+      "id": '-1',
       "email": 'dammy@gmail.com',
       "encrypted_password": 'dummy1234',
       "nickname": 'ダミー',

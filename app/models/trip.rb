@@ -24,7 +24,7 @@ class Trip < ApplicationRecord
       "end_date": '2024-02-29',
       "latitude": '35.0',
       "longitude": '135.0',
-      "user_id": '0'
+      "user_id": '-1'
     }
     new(dummy_data)
   end
