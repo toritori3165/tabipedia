@@ -44,7 +44,7 @@ a {
   }
   80%{
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.0);
   }
   100%{
     opacity: 0;
@@ -110,7 +110,7 @@ a {
 .scroll-btn {
   margin: 0 auto;
   position: absolute;
-  bottom: 15px;
+  bottom: 70px;
   left: 50vw;
   justify-content: center;
   animation: poyopoyo 2s ease-out infinite;
