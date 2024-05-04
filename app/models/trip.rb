@@ -18,7 +18,7 @@ class Trip < ApplicationRecord
   def self.default
     dummy_data = {
       "id": '1',
-      "trip_title": 'dummy',
+      "trip_title": 'おすすめの旅を投稿してね！',
       "place": 'dummy',
       "start_date": '2024-02-29',
       "end_date": '2024-02-29',
