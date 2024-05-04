@@ -93,3 +93,4 @@ gem 'jquery-rails'
 gem "sassc"
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'dotenv-rails', '~> 3.1.1'
