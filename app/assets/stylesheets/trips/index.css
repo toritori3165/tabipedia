@@ -12,11 +12,6 @@ a {
 .title-images {
   width: 100vw;
   height: 100vh;
-  /* background-image: url(himawari.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  list-style: none; */
   position: relative;
   overflow: hidden;
 }.title-images>div{
@@ -32,17 +27,17 @@ a {
   /* 追記 */
   opacity: 0;
   animation-name: fade;
-  animation-duration: 24s;
+  animation-duration: 41s;
   animation-iteration-count: infinite;
 }
 @keyframes fade {
   0%{
     opacity: 0;
   }
-  20%{
+  10%{
     opacity: 1;
   }
-  80%{
+  90%{
     opacity: 0;
     transform: scale(1.0);
   }
@@ -58,12 +53,30 @@ a {
 /* 2枚目のスライド */
 .title-images>div:nth-of-type(2){
   background-image: url(naruto-kaikyo.jpg);
-  animation-delay: 7s;
+  animation-delay: 5s;
 }
 /* 3枚目のスライド */
+.title-images>div:nth-of-type(3){
+  background-image: url(todai.jpg);
+  animation-delay: 11s;
+}/* 4枚目のスライド */
+.title-images>div:nth-of-type(4){
+  background-image: url(momiji.jpg);
+  animation-delay: 17s;
+}/* 5枚目のスライド */
+.title-images>div:nth-of-type(5){
+  background-image: url(enoshima-sunset.jpg);
+  animation-delay: 23s;
+}
+/* 6枚目のスライド */
+.title-images>div:nth-of-type(6){
+  background-image: url(nigatsudo.jpg);
+  animation-delay: 29s;
+}
+/* 最後のスライド */
 .title-images>div:last-of-type{
-  background-image: url(fujisan.jpg);
-  animation-delay: 14s;
+  background-image: url(sensouji-night2.jpg);
+  animation-delay: 35s;
 }
 
 
