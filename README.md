@@ -19,8 +19,8 @@ https://tabipedia.onrender.com
 # テスト用アカウント
 * Basic認証ID : yuki
 * Basic認証パスワード : 9969
-* ログインID : tsuyoshi@gmail.com
-* ログインパスワード : nakagawake1
+* ログインID : manemane3@gmail.com
+* ログインパスワード : manemane3
 
 
 # 利用方法
