@@ -11,7 +11,6 @@
 * コメントを通じてほかのユーザーとコミュニケーションが取れる
 
 
-
 # URL
 https://tabipedia.onrender.com
 
@@ -30,7 +29,6 @@ https://tabipedia.onrender.com
 * 1旅行の中の細かい旅程を1日目、2日目、3日目、などに分けて投稿可能
 
 
-
 # アプリケーションを作成した背景
 ### 旅の経験者のリアルな声がわかる、旅行情報共有SNS
 以下のようなユーザー向けに作成。
@@ -39,11 +37,9 @@ https://tabipedia.onrender.com
 * おすすめの旅行、旅程の組み方等を共有したいユーザー
 
 
-
 # 実装予定の機能
-* Google Map機能
-* コメント機能追加
 * いいね機能追加
+* フォロー機能追加
 * 写真複数投稿機能、動画投稿機能追加
 
 
@@ -68,12 +64,16 @@ https://tabipedia.onrender.com
 # 工夫したポイント
 * Google Mapの埋め込み
 * サーバーサイド側とフロントエンド側に分かれ、2名の分業体制でアプリを開発中
+* 旅行全体の情報を保存する親テーブルと、日程別の旅程の詳細を保存する子テーブルを用意
+* 検索機能は、投稿タイトルと地名の双方で部分一致で検索可能にした
+* ボタンにホバーアニメーションを実装、直感的なUIや使って楽しいUIを意識
+* フロント背景にスライドショーを取り入れ、旅行欲を喚起する、ワクワクするフロント面に仕上げた
 
 
 # 改善点
 * Google Mapが正常に表示されないので改善する
 * Google Mapのピンの精度を上げる
-* フロント背景にスライドショー等を取り入れ、いい景色の写真を中心にたくさん使用し、もっと旅行欲を喚起する、ワクワクするフロント面に仕上げる
+* いいね機能やフォロー機能の実装
 
 
 # テーブル設計
@@ -96,7 +96,6 @@ https://tabipedia.onrender.com
 - has_many :plan_comments, dependent: :destroy
 
 
-
 ### ■ trips テーブル
 
 | Column                    | Type       | Options                        |
@@ -112,7 +111,6 @@ https://tabipedia.onrender.com
 - has_many :trip_comments, dependent: :destroy
 
 
-
 ### ■ plans テーブル
 
 | Column                    | Type       | Options                        |
@@ -126,7 +124,6 @@ https://tabipedia.onrender.com
 - has_many :plan_comments, dependent: :destroy
 
 
-
 ### ■ trip_comments テーブル
 
 | Column                    | Type       | Options                        |
@@ -137,7 +134,6 @@ https://tabipedia.onrender.com
 
 - belongs_to :user
 - belongs_to :trip
-
 
 
 ### ■ plan_comments テーブル
