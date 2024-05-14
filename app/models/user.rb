@@ -33,7 +33,8 @@ class User < ApplicationRecord
       "age_id": '34',
       "birthday": '1990-01-01',
       "prefecture_id": '2',
-      "profile": 'こんにちは！'
+      "profile": 'こんにちは！',
+      "image": '../app/assets/images/human.png'
     }
     new(dummy_data)
   end
