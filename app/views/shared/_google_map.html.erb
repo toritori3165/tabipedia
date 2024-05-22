@@ -1,8 +1,8 @@
+<div id="map" style="height: 500px; width: 100%;"></div>
+
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYCBhjyECXleS0TwFxXXaHbWBrR1keUk0&callback=initMap">
 </script>
-
-<div id="map" style="height: 500px; width: 100%;"></div>
 
 <script type="text/javascript">
   function initMap() {
@@ -31,7 +31,7 @@
       var marker_<%= trip.id %> = new google.maps.Marker({
         position: { lat: <%= trip.latitude %>, lng: <%= trip.longitude %> },
         map: map,
-        title: '<%= trip.trip_title %>'
+        title: '<%= j trip.trip_title %>'
       });
 
       // マーカーにマウスが乗ったときのイベントハンドラを設定
@@ -45,6 +45,7 @@
       });
     <% end %>
   }
-  initMap();
+
+  window.initMap = initMap;
 </script>
 
